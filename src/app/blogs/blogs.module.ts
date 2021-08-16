@@ -5,10 +5,13 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { BlogComponent } from './blog/blog.component';
 
 import { BlogsService } from './services/blogs.service';
+import { RouterModule } from '@angular/router';
+import { BlogsRoutingModule } from './blogs-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    BlogsRoutingModule
   ],
   declarations: [
     BlogsComponent,

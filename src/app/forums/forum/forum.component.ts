@@ -11,8 +11,15 @@ import { Forum } from '../services/data';
 export class ForumComponent implements OnInit {
   forum: Forum;
 
-  constructor(private forumsService: ForumsService) { }
+  constructor(private forumsService: ForumsService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.forum = this.forumsService.forum(params['forum_alias']);
+      if (!this.forum) this.router.navigate(['/not-found']);
+    })
+  }
 
 }
